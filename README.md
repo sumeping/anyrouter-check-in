@@ -4,7 +4,7 @@
 
 **维护开源不易，如果本项目帮助到了你，请帮忙点个 Star，谢谢!**
 
-用于 Claude Code 中转站 Any Router 多账号每日签到，一次 $25，限时注册即送 100 美金，[点击这里注册](https://anyrouter.top/register?aff=gSsN)。
+用于 Claude Code 中转站 Any Router 多账号每日签到，一次 $25，限时注册即送 100 美金，[点击这里注册](https://anyrouter.top/register?aff=gSsN)。业界良心，支持 Claude Code 百万上下文（使用 `/model sonnet[1m]` 开启），`gemini-2.5-pro` 模型。
 
 ## 功能特性
 
@@ -47,17 +47,19 @@
 
 ### 4. 多账号配置格式
 
-支持单个与多个
+支持单个与多个账号配置，可选 `name` 字段用于自定义账号显示名称：
 
 ```json
 [
   {
+    "name": "我的主账号",
     "cookies": {
       "session": "account1_session_value"
     },
     "api_user": "account1_api_user_id"
   },
   {
+    "name": "备用账号",
     "cookies": {
       "session": "account2_session_value"
     },
@@ -66,9 +68,22 @@
 ]
 ```
 
-通过 F12 工具可获取 cookies 与 api_user 的值。
+**字段说明**：
+- `cookies` (必需)：用于身份验证的 cookies 数据
+- `api_user` (必需)：用于请求头的 new-api-user 参数
+- `name` (可选)：自定义账号显示名称，用于通知和日志中标识账号
 
-![获取签到](./assets/request-header.png)
+如果未提供 `name` 字段，会使用 `Account 1`、`Account 2` 等默认名称。
+
+接下来获取 cookies 与 api_user 的值。
+
+通过 F12 工具，切到 Application 面板，拿到 session 的值，最好重新登录下，该值 1 个月有效期，但有可能提前失效，失效后报 401 错误，到时请再重新获取。
+
+![获取 cookies](./assets/request-session.png)
+
+通过 F12 工具，切到 Network 面板，可以过滤下，只要 Fetch/XHR，找到带 `New-Api-User`，这个值正常是 5 位数，如果是负数或者个位数，正常是未登录。
+
+![获取 api_user](./assets/request-api-user.png)
 
 ### 5. 启用 GitHub Actions
 
