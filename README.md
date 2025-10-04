@@ -4,7 +4,7 @@
 
 **维护开源不易，如果本项目帮助到了你，请帮忙点个 Star，谢谢!**
 
-用于 Claude Code 中转站 Any Router 多账号每日签到，一次 $25，限时注册即送 100 美金，[点击这里注册](https://anyrouter.top/register?aff=gSsN)。业界良心，支持 Claude Code 百万上下文（使用 `/model sonnet[1m]` 开启），`gemini-2.5-pro` 模型。
+用于 Claude Code 中转站 Any Router 多账号每日签到，一次 $25，限时注册即送 100 美金，[点击这里注册](https://anyrouter.top/register?aff=gSsN)。业界良心，支持 Claude Sonnet 4.5、GPT-5-Codex、Claude Code 百万上下文（使用 `/model sonnet[1m]` 开启），`gemini-2.5-pro` 模型。
 
 ## 功能特性
 
@@ -143,8 +143,8 @@
 ### 邮箱通知
 - `EMAIL_USER`: 发件人邮箱地址
 - `EMAIL_PASS`: 发件人邮箱密码/授权码
+- `CUSTOM_SMTP_SERVER`: 自定义发件人SMTP服务器(可选)
 - `EMAIL_TO`: 收件人邮箱地址
-
 ### 钉钉机器人
 - `DINGDING_WEBHOOK`: 钉钉机器人的 Webhook 地址
 
